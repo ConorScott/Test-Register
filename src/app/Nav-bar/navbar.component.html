@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()"  routerLink="home">Home</button>
+    <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="add-event">Add Event</button>
+
+    <span style="flex:1 1 auto"></span>
+    <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/login">Login</button>
+    <button mat-button routerLinkActive="active" *ngIf="isLoggedIn" (click)=onLogout()>Logout</button>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="!isLoggedIn">Registration</button>
+    
+    
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <ul>
+      <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/signup">Register User</button>
+      <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/venueSignUp">Register Venue</button>
+      
+    </ul>
+    </mat-menu>
+    
+  </mat-toolbar>

@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h4>Register Your Venue</h4>
+        </mat-card-title>
+    </mat-card-header>
+    <h3>Basic Info</h3>
+    <mat-card-content>
+        <form>
+            <mat-form-field>
+                <input [(ngModel)]="name" name="name" matInput placeholder="Venue Name">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-select placeholder="Venue Type">
+                    <mat-option *ngFor="let venue of venues" [value]="venue.value">
+                        {{venue.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input name="eircode" matInput placeholder="eircode" type="eircode">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input name="address" matInput placeholder="Address Line 1" type="Address">
+            </mat-form-field>
+            <mat-form-field>
+                <input name="address" matInput placeholder="Address Line 2" type="Address">
+            </mat-form-field>
+            <mat-form-field>
+                <input name="address" matInput placeholder="City" type="Address">
+            </mat-form-field>
+            <br>
+            <hr>
+            <h3>Contact Info</h3>
+            <mat-form-field>
+                <input [(ngModel)]="email" name="email" matInput placeholder="email" type="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input [(ngModel)]="pwd" name="password" matInput placeholder="password" type="password">
+            </mat-form-field>
+            
+            <mat-form-field>
+                    <input [(ngModel)]="pwd" name="password" matInput placeholder="Confirm password" type="password">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                    <input  name="number" matInput placeholder="Phone Number" type="number">
+            </mat-form-field>
+            <br>
+            <button (click)="register()" mat-raised-button color="primary">Register</button>
+        </form>
+    </mat-card-content>
+</mat-card>

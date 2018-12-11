@@ -1,0 +1,42 @@
+.card{
+    background-color: #e0e0e0;
+}
+
+.card-body{
+    width: 100%;
+}
+
+.event-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .event-header-image {
+    background-image: url('https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg');
+    background-size: cover;
+  }
+
+  h1, button{
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sidenav {
+    padding: 20px;
+    background-color: black;
+  }
+
+  label, h3{
+      color: white;
+  }
+  

@@ -1,0 +1,69 @@
+<section id="event">
+
+  <div class="section-content" ng-app>
+    <h1 class="section-header">Add a new event</h1>
+  </div>
+  <div class="card" ng:controller="Main">
+  <div class="card-body" >
+      
+    <form>
+      <div class="form-line">
+          <div class="form-group">
+              <label>Event ID</label>
+              <input type="text" style="width: 400px;" class="form-control" placeholder=" Enter ID" name="eventId"
+              [(ngModel)]='eventId'>
+            </div>
+          <div class="form-group">
+            <label>Event title</label>
+            <input type="text" style="width: 400px;" class="form-control" placeholder=" Enter event" name="eventName"
+            [(ngModel)]='eventName'>
+          </div>
+          <div class="form-group">
+            <label>Venue name</label>
+            <input type="email" style="width: 400px;" class="form-control" placeholder=" Enter venue name" name="eventVenue"
+            [(ngModel)]='eventVenue'>
+          </div>	
+          <div class="form-group">
+
+            <label>Genre</label><br>
+            <select [(ngModel)]="eventGenre" name="genre">
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Techno">Techno</option>
+                <option value="Trad">Trad</option>
+                <option value="Other">Other</option>
+
+              </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Date</label><br>
+            <input type="date" id="eventDate" name="eventDate"
+     value="2019-07-22"
+     min="2019-01-01" max="2019-12-31" [(ngModel)]='eventDate' >
+          </div>
+          <div class="form-group">
+              <label for="appt">Choose a time for the event:</label><br>
+
+              <input type="time" name="eventTime" name="appt"
+                     min="9:00" max="18:00" required [(ngModel)]='eventTime'>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <label for ="description">Description</label>
+             <input type="text"  class="form-control" style="width: 400px;" id="description" placeholder="Enter a Description"
+             name="eventDescription" [(ngModel)]='eventDescription'>
+          </div>
+          <div>
+
+            <button type="button" class="btn btn-primary submit" (click)="addEvent()">Submit event</button>
+          </div>
+          
+      </div>
+    </form>
+  </div>
+  </div>
+  
+</section>
+

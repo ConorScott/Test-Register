@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-content>
+    <form>
+      <mat-form-field class="full-width">
+        <mat-label>UserName</mat-label>
+        <input matInput type="text" class="form-control" id="userName" name="userName" placeholder="Enter UserName"
+          [(ngModel)]='username'>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>First Name:</mat-label>
+        <input matInput type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name"
+          [(ngModel)]='firstname'>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width">
+        <mat-label>Last Name:</mat-label>
+        <input matInput type="text" class="form-control" id="surname" name="surname" placeholder="Enter Surname"
+          [(ngModel)]='lastname'>
+      </mat-form-field>
+      <br>
+      <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" (click)="createProfile()">create profile</button>
+    </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
