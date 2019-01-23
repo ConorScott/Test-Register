@@ -16,6 +16,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {RouterModule, Routes} from '@angular/router';
 import {AngularFireDatabaseModule} from "@angular/fire/database"
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NavbarModule, WavesModule, ButtonsModule, DropdownModule } from 'angular-bootstrap-md'
 
 
 import { AppComponent } from './app.component';
@@ -78,7 +80,12 @@ const routes: Routes = [
     AngularFireDatabaseModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MDBBootstrapModule,
+    NavbarModule,
+    WavesModule,
+    ButtonsModule,
+    DropdownModule
   ],
   providers: [AuthService, AuthGuard,NotificationService, AdminGuard],
   bootstrap: [AppComponent]

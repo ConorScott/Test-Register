@@ -6,14 +6,17 @@
     <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/login">Login</button>
     <button mat-button routerLinkActive="active" *ngIf="isLoggedIn" (click)=onLogout()>Logout</button>
     <button mat-button [matMenuTriggerFor]="menu" *ngIf="!isLoggedIn">Registration</button>
-    
-    
+
+
+
+
     <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <i class="fa fa-user"></i>
       <ul>
       <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/signup">Register User</button>
       <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/venueSignUp">Register Venue</button>
-      
+
     </ul>
     </mat-menu>
-    
+
   </mat-toolbar>

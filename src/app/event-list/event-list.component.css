@@ -1,5 +1,6 @@
 .card{
     background-color: #e0e0e0;
+    background-image: url(/src/assets/red-brick-wall-background_1372-489.605f270132673a2054d0.jpg);
 }
 
 .card-body{
@@ -13,7 +14,7 @@
     margin-top: 2%;
     margin-bottom: 2%;
   }
-  
+
   .event-header-image {
     background-image: url('https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg');
     background-size: cover;
@@ -23,20 +24,20 @@
       margin-left: auto;
       margin-right: auto;
   }
-  
+
   .example-sidenav-content {
     display: flex;
     height: 100%;
     align-items: center;
     justify-content: center;
   }
-  
+
   .sidenav {
     padding: 20px;
     background-color: black;
   }
 
+
   label, h3{
       color: white;
   }
-  
