@@ -11,26 +11,27 @@
                 <input [(ngModel)]="name" name="name" matInput placeholder="Venue Name">
             </mat-form-field>
             <br>
-            <mat-form-field>
-                <mat-select placeholder="Venue Type">
-                    <mat-option *ngFor="let venue of venues" [value]="venue.value">
-                        {{venue.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <br>
+            
             <mat-form-field>
                 <input name="eircode" matInput placeholder="eircode" type="eircode">
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input name="address" matInput placeholder="Address Line 1" type="Address">
+                <input [(ngModel)]="building" name="building" matInput placeholder="building number" type="Address">
             </mat-form-field>
             <mat-form-field>
-                <input name="address" matInput placeholder="Address Line 2" type="Address">
+                <input [(ngModel)]="street" name="street" matInput placeholder="street" type="Address">
             </mat-form-field>
             <mat-form-field>
-                <input name="address" matInput placeholder="City" type="Address">
+                <input [(ngModel)]="city" name="city" matInput placeholder="City" type="Address">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input [(ngModel)]="about" name="about" matInput placeholder="Tell us about your business" type="eircode">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input [(ngModel)]="hours" name="hours" matInput placeholder="Tell us your opening hours" type="eircode">
             </mat-form-field>
             <br>
             <hr>

@@ -6,23 +6,39 @@
     </mat-card-header>
     <mat-card-content>
       <form>
-        <mat-form-field>
+        <mat-form-field class="form-group">
           <input [(ngModel)]="email" name="email" matInput placeholder="email" type="email">
         </mat-form-field>
         <br>
-        <mat-form-field>
-          <input [(ngModel)]="pwd" name="passwprd" matInput placeholder="password" type="password">
+        <mat-form-field class="form-group">
+          <input [(ngModel)]="name" name="name" matInput placeholder="name" type="name">
         </mat-form-field>
         <br>
-        <mat-form-field>
-          <input [(ngModel)]="name" name="name" matInput placeholder="Name">
+        <mat-form-field class="form-group">
+          <input [(ngModel)]="pwd" name="password" matInput placeholder="password" type="password">
         </mat-form-field>
         <br>
-        <mat-form-field>
+        <mat-form-field class="form-group">
+          <input [(ngModel)]="username" name="username" matInput placeholder="Username">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-group">
+          <input [(ngModel)]="venues" name="username" matInput placeholder="Favourite Venue">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-group">
+          <input [(ngModel)]="artists" name="artists" matInput placeholder="Favourite Artist">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="form-group">
           <textarea [(ngModel)]="description" name="description" matInput placeholder="description"></textarea>
         </mat-form-field>
         <br>
-        <button (click)="register()" mat-raised-button color="primary">Register</button>
+        <div class="form-group">
+          <textarea [(ngModel)]="date" name="date" matInput placeholder="date joined"></textarea>
+        </div>
+        <br>
+        <button (click)="register()"  mat-raised-button color="primary">Register</button>
       </form>
     </mat-card-content>
   </mat-card>

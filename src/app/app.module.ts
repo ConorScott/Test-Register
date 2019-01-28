@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
-import {MatDrawer, MatListModule, MatCardModule, MatInputModule, MatToolbarModule, MatExpansionModule, MatButtonModule, MatListSubheaderCssMatStyler, MatProgressSpinnerModule, MatMenuModule, MatSelect, MatSelectModule, MatFormFieldModule, MatCheckboxModule, MatSidenavModule} from '@angular/material';
+import {MatDrawer, MatListModule, MatCardModule, MatInputModule, MatToolbarModule, MatExpansionModule, MatButtonModule, MatListSubheaderCssMatStyler, MatProgressSpinnerModule, MatMenuModule, MatSelect, MatSelectModule, MatFormFieldModule, MatCheckboxModule, MatSidenavModule, } from '@angular/material';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { NotificationService } from './services/notification.service';
@@ -25,20 +25,19 @@ import { LoginComponent } from './Users/login.component';
 import {SignupComponent} from './Registration/signup.component';
 import { NotificationComponent } from './Notification/notification.component';
 import { NavbarComponent } from './Nav-bar/navbar.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { VenueSignUpComponent } from './Registration/venue/venue-sign-up';
-import { ProfileComponent } from './profile/profile.component';
 import {AdminGuard} from './services/admin.guard';
 import { AddEventComponent } from './add-event/add-event.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserService } from './services/user.service';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full', canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'success', component: ProfilePageComponent},
   {path: 'venueSignUp', component: VenueSignUpComponent, },
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]},
   {path: 'add-event', component: AddEventComponent, canActivate:[AdminGuard]},
   {path: 'home', component: EventListComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'login', canActivate: [AuthGuard]},
@@ -51,11 +50,10 @@ const routes: Routes = [
     SignupComponent,
     NotificationComponent,
     NavbarComponent,
-    ProfilePageComponent,
     VenueSignUpComponent,
-    ProfileComponent,
     AddEventComponent,
-    EventListComponent
+    EventListComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -85,9 +83,13 @@ const routes: Routes = [
     NavbarModule,
     WavesModule,
     ButtonsModule,
-    DropdownModule
+    DropdownModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatInputModule,
+    MatListModule
   ],
-  providers: [AuthService, AuthGuard,NotificationService, AdminGuard],
+  providers: [AuthService, AuthGuard,NotificationService, AdminGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

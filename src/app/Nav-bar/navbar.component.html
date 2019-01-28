@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
     <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()"  routerLink="home">Home</button>
     <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="add-event">Add Event</button>
+    <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="profile">Profile</button>
 
     <span style="flex:1 1 auto"></span>
     <button mat-button routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/login">Login</button>

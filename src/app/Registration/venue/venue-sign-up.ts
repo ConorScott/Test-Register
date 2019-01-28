@@ -22,16 +22,20 @@ export class VenueSignUpComponent implements OnInit {
   email: string;
   pwd: string;
   name: string;
-  description: string;
+  about: string;
   roles: boolean;
-
+  venueType: string;
+  building: string;
+  street: string;
+  city: string;
+  hours: string;
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
 
   register() {
-    this.auth.signupVenue(this.email, this.pwd);
+    this.auth.signupVenue(this.email, this.pwd, this.name, this.about, this.venueType, this.building, this.street, this.city, this.hours);
     console.log(this.email);
     console.log(this.pwd);
   }

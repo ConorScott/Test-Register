@@ -7,6 +7,8 @@ import * as firebase from 'firebase/app';
 import {User} from '../models/user';
 import {switchMap,} from 'rxjs/operators';
 import {AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore'
+import { Profile } from '../models/profile';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @Injectable({
@@ -24,6 +26,7 @@ export class AuthService {
      private _firebaseAuth: AngularFireAuth,
       private router: Router,
        private notifier: NotificationService,
+       private af: AngularFireDatabase
        ) {
         this.userCollection = afs.collection<User>("users");
         this.user = this._firebaseAuth.authState
@@ -37,7 +40,7 @@ export class AuthService {
 
        }
   
-       private setVenueDoc(user){
+       private setVenueDoc(user, name, about, venueType, building, street, city, hours){
          const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
          const data: User = {
@@ -45,11 +48,23 @@ export class AuthService {
            email: user.email,
            roles: {
             venue: true
-          }
+          },
+         username: user.username,
+         name: name,
+         description: about,
+         venueType: venueType,
+         building: building,
+         street: street,
+         city: city,
+         hours: hours,
+         venues: user.venues,
+         date: user.date,
+         artists:user.artists
+          //profile: user.profile 
          }
          return userRef.set(data)
        }
-       private setUserDoc(user){
+       private setUserDoc(user, username, name, description, venues, artists, date){
         const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
         const data: User = {
@@ -57,24 +72,39 @@ export class AuthService {
           email: user.email,
           roles: {
            user: true
-         }
+         },
+         username: username,
+         name: name,
+         description: description,
+         venues: venues,
+         artists: artists,
+         date: date,
+         venueType: user.venueType,
+         building: user.building,
+         street: user.street,
+         city: user.city,
+         hours: user.hours,
+         
+        // profile: user.profile 
+
         }
-        return userRef.set(data)
+        return userRef.set(JSON.parse(JSON.stringify(data)))
+        //return userRef.set(Object.assign({}, data))
       }
   
 
-  signup(email: string, password: string) {
+  signup(email: string, password: string, username: string, name: string, description: string, venues: string, artists: string, date: string) {
     // clear all messages
     this.notifier.display(false, '');
     this._firebaseAuth
       .auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password, )
       .then(user => {
         // this.updateUserData(res.user);
         this.sendEmailVerification();
         const message = 'A verification email has been sent, please check your email and follow the steps!';
         this.notifier.display(true, message);
-        return this.setUserDoc(user.user)
+        return this.setUserDoc(user.user, username, name, description, venues, artists, date)
           .then(() => {
             firebase.auth().signOut();
             this.router.navigate(['login']);
@@ -83,7 +113,7 @@ export class AuthService {
       })
   }
 
-  signupVenue(email: string, password: string) {
+  signupVenue(email: string, password: string,name: string, about: string, venueType: string, building: string, street: string, city: string, hours: string) {
     // clear all messages
     this.notifier.display(false, '');
     this._firebaseAuth
@@ -94,7 +124,7 @@ export class AuthService {
         this.sendEmailVerification();
         const message = 'A verification email has been sent, please check your email and follow the steps!';
         this.notifier.display(true, message);
-        return this.setVenueDoc(user.user)
+        return this.setVenueDoc(user.user,name, about, venueType, building, street, city, hours)
           .then(() => {
             firebase.auth().signOut();
             this.router.navigate(['login']);
@@ -154,5 +184,18 @@ export class AuthService {
 
   isLoggedIn():boolean {
       return this.loggedInStatus;
+  }
+
+  currentUser(): Observable<User>{
+    
+
+    return this.user = this._firebaseAuth.authState
+        .pipe(switchMap(user => {
+          if(user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+          } else{
+            return of(null)
+          }
+        }))
   }
 }
