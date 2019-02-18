@@ -1,14 +1,29 @@
- <mat-list-item>{{user.email}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.username}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.name}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.date}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.description}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.venues}}</mat-list-item>
-  <mat-divider></mat-divider>
-  <mat-list-item>{{user.artists}}</mat-list-item>
-  <mat-divider></mat-divider>
+<div class="content">
+  <mat-card class="user-info">
+    <header><img src="/src/app/images/logo.png" id="logo"></header>
+    <mat-card-content class="info">
+      <mat-card-content class="column left">
+        <mat-card-title-group id="profile-img"><img mat-card-lg-image></mat-card-title-group>
+        <mat-list-item>Email: {{user.email}}</mat-list-item>
+
+        <mat-list-item>Name: {{user.username}}</mat-list-item>
+
+        <mat-list-item>Username: {{user.artists}}</mat-list-item>
+
+        <mat-list-item>Date Joined: {{user.date}}</mat-list-item><br>
+        
+        <h3 style="font-size:2.5vw;">Venues</h3>
+        <mat-list-item>{{user.description}}</mat-list-item><br>
+
+        <h3 style="font-size:2.5vw;">Acts</h3>
+        <mat-list-item>{{user.venues}}</mat-list-item>
+      </mat-card-content>      
+    </mat-card-content>    
+  </mat-card>
+  <mat-card-content class="feed">
+      <mat-card class="eventfeed">
+        <h1 style="font-size:2.5vw;">Upcoming Events</h1>
+        <mat-card></mat-card>        
+      </mat-card>
+    </mat-card-content>
+  </div>

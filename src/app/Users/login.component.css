@@ -1,0 +1,13 @@
+.form{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    opacity: .2%;
+}
+.bckground{
+    background-image: url(/src/app/images/nightsligo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
