@@ -29,6 +29,7 @@ export class VenueSignUpComponent implements OnInit {
   street: string;
   city: string;
   hours: string;
+  username = "";
   constructor(private auth: AuthService) { }
 
   ngOnInit() {

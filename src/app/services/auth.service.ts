@@ -19,6 +19,8 @@ export class AuthService {
   user$: Observable<firebase.User>;
   loggedInStatus: boolean = false;
   user: Observable<User>;
+  userStatus: boolean = false;
+  username ="";
 
   userCollection: AngularFirestoreCollection<User>;
 
@@ -49,7 +51,7 @@ export class AuthService {
            roles: {
             venue: true
           },
-         username: user.username,
+         username: this.username,
          name: name,
          description: about,
          venueType: venueType,
@@ -57,9 +59,9 @@ export class AuthService {
          street: street,
          city: city,
          hours: hours,
-         venues: user.venues,
-         date: user.date,
-         artists:user.artists
+         venues: "",
+         date: "",
+         artists: ""
           //profile: user.profile 
          }
          return userRef.set(data)
@@ -185,7 +187,11 @@ export class AuthService {
   isLoggedIn():boolean {
       return this.loggedInStatus;
   }
-
+  
+  isUser():boolean {
+    return this.userStatus;
+  }
+  
   currentUser(): Observable<User>{
     
 

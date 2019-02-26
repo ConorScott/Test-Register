@@ -31,13 +31,15 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './services/user.service';
+import { VenueProfileComponent } from './venue-profile/venue-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full', canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'venueSignUp', component: VenueSignUpComponent, },
-  {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: UserProfileComponent, },
+  {path: 'venue-profile', component: VenueProfileComponent, },
   {path: 'add-event', component: AddEventComponent, canActivate:[AdminGuard]},
   {path: 'home', component: EventListComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'login', canActivate: [AuthGuard]},
@@ -53,7 +55,8 @@ const routes: Routes = [
     VenueSignUpComponent,
     AddEventComponent,
     EventListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    VenueProfileComponent
   ],
   imports: [
     BrowserModule,
