@@ -1,2 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/purple-green.css';
+body{
+    background-image: url(/src/app/images/blacklights.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1%;
+    background-attachment: fixed;
+}
+#logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1%;
+    max-width: 100%;
+  height: auto;
+}
+@font-face{
+    font-family: graffiti;
+    src: url(/src/assets/MASTERPLAN___.ttf);
+}

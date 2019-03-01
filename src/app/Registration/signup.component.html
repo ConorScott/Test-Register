@@ -1,44 +1,54 @@
-<mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        <h4>Register New User</h4>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<div class="main">
+  <mat-card class="form">
+        <h1 style="font-size:5.5vw;">Register New User</h1>
+    <mat-card class="left">
       <form>
         <mat-form-field class="form-group">
+            <mat-label for="email">Email</mat-label><br>
           <input [(ngModel)]="email" name="email" matInput placeholder="email" type="email">
         </mat-form-field>
         <br>
         <mat-form-field class="form-group">
+            <mat-label for="name">Name</mat-label><br>
           <input [(ngModel)]="name" name="name" matInput placeholder="name" type="name">
         </mat-form-field>
         <br>
         <mat-form-field class="form-group">
+            <mat-label for="password">password</mat-label><br>
           <input [(ngModel)]="pwd" name="password" matInput placeholder="password" type="password">
         </mat-form-field>
         <br>
         <mat-form-field class="form-group">
+            <mat-label for="username">username</mat-label><br>
           <input [(ngModel)]="username" name="username" matInput placeholder="Username">
         </mat-form-field>
         <br>
+      </form>
+      </mat-card>
+      <mat-card class="right">
+        <form>
         <mat-form-field class="form-group">
-          <input [(ngModel)]="venues" name="username" matInput placeholder="Favourite Venue">
+            <mat-label for="venues">venues</mat-label><br>
+          <input [(ngModel)]="venues" name="venues" matInput placeholder="Favourite Venue">
         </mat-form-field>
         <br>
         <mat-form-field class="form-group">
+            <mat-label for="artists">artists</mat-label><br>
           <input [(ngModel)]="artists" name="artists" matInput placeholder="Favourite Artist">
         </mat-form-field>
         <br>
         <mat-form-field class="form-group">
+            <mat-label for="description">description</mat-label><br>
           <textarea [(ngModel)]="description" name="description" matInput placeholder="description"></textarea>
         </mat-form-field>
         <br>
         <div class="form-group">
+            <mat-label for="date">date</mat-label><br>
           <textarea [(ngModel)]="date" name="date" matInput placeholder="date joined"></textarea>
         </div>
         <br>
         <button (click)="register()"  mat-raised-button color="primary">Register</button>
       </form>
-    </mat-card-content>
+    </mat-card>
   </mat-card>
+  </div>

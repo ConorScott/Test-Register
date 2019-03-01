@@ -1,20 +1,23 @@
-<mat-card class="bckground">
+  <mat-card class="background">
   <mat-card class="form">
-    <mat-card-content>
+    <div class="header">
+    <h1 style="font-size:5.5vw;">User Login</h1>
+    </div>
+    <mat-card-content class="myform">
       <form class="my-form" [formGroup]="form" (ngSubmit)="login()">
         <mat-form-field class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label for="email">Email</mat-label><br>
           <input matInput placeholder="Email" type="email" name="email" formControlName="email">
         </mat-form-field>
         <br>
         <mat-form-field class="full-width">
-          <mat-label>Password</mat-label>
+          <mat-label for="password">Password</mat-label><br>
           <input matInput placeholder="Password" type="password" name="password" formControlName="password">
         </mat-form-field>
       </form>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
+      <mat-card-actions>
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card-content>    
   </mat-card>
-  </mat-card>
+</mat-card>
