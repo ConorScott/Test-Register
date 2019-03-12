@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -12,15 +12,12 @@ import 'rxjs/add/operator/switchMap';
 import * as _ from 'lodash'
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-sidenav-list',
+  templateUrl: './sidenav-list.component.html',
+  styleUrls: ['./sidenav-list.component.scss']
 })
-export class NavbarComponent implements OnInit {
-
-  @Output() public sidenavToggle = new EventEmitter();
-
-  title: string = "Login";
+export class SidenavListComponent implements OnInit {
+  @Output() sidenavClose = new EventEmitter();
 
   isLoggedIn: boolean;
   isUser: Observable<boolean>;
@@ -29,7 +26,7 @@ export class NavbarComponent implements OnInit {
   isUser1: boolean;
   user1: BehaviorSubject<User> = new BehaviorSubject(null)
   userRoles: Array<string>;//roles of currently logged in user
-
+ 
   constructor(private afs: AngularFirestore, private auth: AuthService, private myRoute: Router, private afAuth: AngularFireAuth) { 
     auth.user.map(user => {
       /// Set an array of user roles, ie ['admin', 'author', ...]
@@ -37,36 +34,17 @@ export class NavbarComponent implements OnInit {
     })
     .subscribe()
   }
-
   userLoggedIn(): boolean {
     this.isLoggedIn = this.auth.isLoggedIn();
     return this.isLoggedIn
-
   }
   get userStatus(): boolean {
     const allowed = ['user']
     return this.matchingRole(allowed)
   }
-
   private matchingRole(allowedRoles): boolean {
     return !_.isEmpty(_.intersection(allowedRoles, this.userRoles))
   }
- 
-  // userStatus(): Observable<boolean> | boolean{
-
-  //    return  this.auth.user.pipe(
-  //      take(1),
-  //      map(user => user && user.roles.venue ? true : false),
-  //      tap(isVenue => {
-  //        if (isVenue == false) {
-  //         this.isUser = this.auth.isUser();
-  //         return this.isUser;     
-  //        }
-  //      })
-  //    );
-      
-  // }
-
   onLogout() {
     this.auth.doLogout();
     this.isLoggedIn = this.auth.isLoggedIn();
@@ -82,8 +60,9 @@ export class NavbarComponent implements OnInit {
     
     
   }
-  public onToggleSidenav = () => {
-    this.sidenavToggle.emit();
+ 
+  public onSidenavClose = () => {
+    this.sidenavClose.emit();
   }
-
+ 
 }

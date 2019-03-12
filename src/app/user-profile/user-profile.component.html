@@ -1,28 +1,27 @@
+<title>Sligo Sounds - Profile</title>
+
 <div class="content">
-  <mat-card class="user-info">
-    <mat-card-content class="info">
-      <mat-card-content class="column left">
-        <mat-card-title-group id="profile-img"><img mat-card-lg-image></mat-card-title-group>
-        <mat-list-item>Email: {{user.email}}</mat-list-item>
+    <mat-card class="form">
+  <mat-card class="left">
+    <h2 style="font-size:4.5vw;">Basic Info</h2>
+        <mat-card-content id="profile-img"><img src="/src/app/images/no-photo.png"></mat-card-content>
+        <mat-list-item style="font-size:1.5vw;">Email: {{user.email}}</mat-list-item>
 
-        <mat-list-item>Name: {{user.username}}</mat-list-item>
+        <mat-list-item style="font-size:1.5vw;">Name: {{user.username}}</mat-list-item>
 
-        <mat-list-item>Username: {{user.artists}}</mat-list-item>
+        <mat-list-item style="font-size:1.5vw;">Username: {{user.artists}}</mat-list-item>
 
-        <mat-list-item>Date Joined: {{user.date}}</mat-list-item><br>
+        <mat-list-item style="font-size:1.5vw;">Date Joined: {{user.date}}</mat-list-item><br>
         
-        <h3 style="font-size:2.5vw;">Venues</h3>
-        <mat-list-item>{{user.description}}</mat-list-item><br>
+        <h3 style="font-size:3.5vw;">Venues</h3>
+        <mat-list-item style="font-size:1.5vw;">{{user.description}}</mat-list-item><br>
 
-        <h3 style="font-size:2.5vw;">Acts</h3>
-        <mat-list-item>{{user.venues}}</mat-list-item>
-      </mat-card-content>      
-    </mat-card-content>    
+        <h3 style="font-size:3.5vw;">Acts</h3>
+        <mat-list-item style="font-size:1.5vw;">{{user.venues}}</mat-list-item> 
   </mat-card>
-  <mat-card-content class="feed">
-      <mat-card class="eventfeed">
+      <mat-card class="right">
         <h1 style="font-size:3.5vw;">Upcoming Events</h1>
         <mat-card></mat-card>        
       </mat-card>
-    </mat-card-content>
+      </mat-card>
   </div>

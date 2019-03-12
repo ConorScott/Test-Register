@@ -1,0 +1,26 @@
+<title>Sligo Sounds - Login</title>
+
+<mat-nav-list>
+    <a mat-list-item routerLinkActive="active" *ngIf="userLoggedIn()"  routerLink="home" (click)="onSidenavClose()">Home</a>
+    
+    <a mat-list-item routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="add-event" (click)="onSidenavClose()">Add Event</a>
+    <a mat-list-item routerLinkActive="active" *ngIf="userStatus && userLoggedIn()" routerLink="profile" (click)="onSidenavClose()">Profile</a>
+    <a mat-list-item routerLinkActive="active" *ngIf="!userStatus && userLoggedIn()" routerLink="venue-profile" (click)="onSidenavClose()">Profile</a>
+
+    <span style="flex:1 1 auto"></span>
+    <a mat-list-item routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/login" (click)="onSidenavClose()">Login</a>
+    <a mat-list-item routerLinkActive="active" *ngIf="isLoggedIn" (click)=onLogout() (click)="onSidenavClose()">Logout</a>
+    <a mat-list-item [matMenuTriggerFor]="menu" *ngIf="!isLoggedIn">Registration</a>
+
+
+
+
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <i class="fa fa-user"></i>
+      <ul>
+      <a mat-list-item routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/signup" (click)="onSidenavClose()">Register User</a>
+      <a mat-list-item routerLinkActive="active" *ngIf="!isLoggedIn" routerLink="/venueSignUp" (click)="onSidenavClose()">Register Venue</a>
+
+    </ul>
+    </mat-menu>
+  </mat-nav-list>

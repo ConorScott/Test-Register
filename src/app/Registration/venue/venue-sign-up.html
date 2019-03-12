@@ -1,62 +1,69 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-            <h4>Register Your Venue</h4>
-        </mat-card-title>
-    </mat-card-header>
-    <h3>Basic Info</h3>
-    <mat-card-content>
+<title>Sligo Sounds - Venue Registration</title>
+<div class="main">
+    <mat-card class="form">
+          <h1 style="font-size:5.5vw;">Register New Venue</h1>
+      <mat-card class="left">
+            <h3>Basic Info</h3>
         <form>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="name">Name</mat-label>
                 <input [(ngModel)]="name" name="name" matInput placeholder="Venue Name">
-            </mat-form-field>
+            </mat-form-field>            
             <br>
-            
-            <mat-form-field>
-                <input name="eircode" matInput placeholder="eircode" type="eircode">
-            </mat-form-field>
-            <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="building">Building No.</mat-label>
                 <input [(ngModel)]="building" name="building" matInput placeholder="building number" type="Address">
-            </mat-form-field>
-            <mat-form-field>
+            </mat-form-field><br>
+            <mat-form-field class="form-group">
+                    <mat-label for="street">Street</mat-label>
                 <input [(ngModel)]="street" name="street" matInput placeholder="street" type="Address">
-            </mat-form-field>
-            <mat-form-field>
+            </mat-form-field><br>
+            <mat-form-field class="form-group">
+                    <mat-label for="city">City</mat-label>
                 <input [(ngModel)]="city" name="city" matInput placeholder="City" type="Address">
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="venueType">Venue Type</mat-label>
                 <input [(ngModel)]="venueType" name="venueType" matInput placeholder="What type of venue" type="eircode">
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="about">About</mat-label>
                 <input [(ngModel)]="about" name="about" matInput placeholder="Tell us about your business" type="eircode">
             </mat-form-field>
+            </form>
             <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="hours">Hours</mat-label>
                 <input [(ngModel)]="hours" name="hours" matInput placeholder="Tell us your opening hours" type="eircode">
             </mat-form-field>
-            <br>
-            <hr>
+            </mat-card>
+            <mat-card class="right">
             <h3>Contact Info</h3>
-            <mat-form-field>
+            <form>
+            <mat-form-field class="form-group">
+                    <mat-label for="email">Email</mat-label>
                 <input [(ngModel)]="email" name="email" matInput placeholder="email" type="email">
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="password">Password</mat-label>
                 <input [(ngModel)]="pwd" name="password" matInput placeholder="password" type="password">
             </mat-form-field>
             
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="password">Password</mat-label>
                     <input [(ngModel)]="pwd" name="password" matInput placeholder="Confirm password" type="password">
             </mat-form-field>
             <br>
-            <mat-form-field>
+            <mat-form-field class="form-group">
+                    <mat-label for="number">Number</mat-label>
                     <input  name="number" matInput placeholder="Phone Number" type="number">
             </mat-form-field>
             <br>
-            <button (click)="register()" mat-raised-button color="primary">Register</button>
+            <button (click)="register()" mat-raised-button color="black">Register</button>
         </form>
-    </mat-card-content>
+    </mat-card>
 </mat-card>
+</div>

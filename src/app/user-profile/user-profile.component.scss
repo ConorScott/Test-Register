@@ -1,64 +1,69 @@
-#profile-img{
-    float: left;
+h1{
+  margin: auto;
+  text-align: center;
+  font-family: graffiti;
+  color: white;
 }
-.user-info{
-    vertical-align: top;
-    display: inline-block;
-    background: black;
-    height: inherit;    
-    width: 40%;
-    padding: 1%;
-
-    background-image: url(/src/app/images/bcklogo.png);
-    background-position: center;
-    background-repeat: no-repeat;
+h3{
+  margin: auto;
+  font-family: graffiti;
+  color: white;
 }
-.info{
-    float: left;
-    display: block;
-    width: 100%;
-}
-.feed {
-  padding: 1%;
-  float: right;
-  display: block;
-  width: 60%;
-}
-.eventfeed{
-  background: black;
-}
-header{
-    width: 100%;
-    background: black;
-}
-#logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+h2{
+  margin: auto;
+  font-family: graffiti;
+  color: white;
 }
 .content{
-    width: 100%;
-    background: black;    
+  width: 100%;
+  height: 750px;
 }
-* {
-    box-sizing: border-box;
-  }
-    .column {
-    float: left;
-  }
-  
-  .left {
-    width: 50%;
-    padding: .3em;    
-  }  
-  .right {
-    width: 50%;  
-    padding: .3em;      
-  }
-  h3{
-    font-family: graffiti;
-  }
-  h1{
-    font-family: graffiti;
-  }
+.form{
+  background-color: rgba(0,0,0,.5);
+  width: 95%;
+  height: 95%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  margin: auto;
+
+}
+.left {
+  width: 40%;
+  float: left;
+  display: block;
+  background-color: rgba(0,0,0,.5);
+  background-image: url(/src/app/images/bcklogo.png);
+  background-repeat: no-repeat; 
+  background-size: contain;
+  background-position: center;
+
+}  
+.right {
+  width: 60%;  
+  float: right; 
+  display: block;
+  background-color: rgba(0,0,0,.5);
+
+}
+mat-label{
+  color: white;
+  display: block;
+  width: 150px;
+  float: left;
+  font-size: 28px;
+  font-family: graffiti;
+}
+mat-form-field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;    
+  box-sizing: border-box;
+}
+img{
+  margin: auto;
+  width: 50%;
+  height: auto;
+}

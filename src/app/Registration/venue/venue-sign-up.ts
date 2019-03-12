@@ -10,6 +10,7 @@ export interface Venue {
 @Component({
   selector: 'app-venue-sign-up',
   templateUrl: './venue-sign-up.html',
+  styleUrls: ['./venue-sign-up.component.scss']
 })
 export class VenueSignUpComponent implements OnInit {
 
