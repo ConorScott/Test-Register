@@ -4,6 +4,8 @@ import { EventsService } from '../services/events.service';
 import { Observable } from 'rxjs';
 import { single } from 'rxjs/operators';
 import {Router} from '@Angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-event-list',
@@ -39,7 +41,7 @@ export class EventListComponent implements OnInit {
     return this.events.filter((event: IEvent ) => event.name.toLocaleLowerCase().indexOf(filterBy) != -1);
 }
   
-  constructor(private _eventsService: EventsService) {
+  constructor(private _eventsService: EventsService, private _afs: AngularFirestore) {
   }
 
   doFilter(genre: string) {
@@ -68,6 +70,10 @@ export class EventListComponent implements OnInit {
       this.filteredEvents = this.events;
     },
       error => this.errorMessage = <any>error);
+  }
+  attendEvent(event: IEvent){
+    var user = firebase.auth().currentUser;
+    this._afs.collection(`users/${user.uid}/events`).add(event);
   }
 }
 
