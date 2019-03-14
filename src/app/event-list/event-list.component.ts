@@ -24,6 +24,7 @@ export class EventListComponent implements OnInit {
   tradCheckbox = false;
   otherCheckbox = false;
   selectedGenres: string[] = [];
+  attendedEvents: string[] = [];
 
   _listFilter: string;
   get listFilter(): string{
@@ -40,7 +41,7 @@ export class EventListComponent implements OnInit {
     filterBy = filterBy.toLocaleLowerCase();
     return this.events.filter((event: IEvent ) => event.name.toLocaleLowerCase().indexOf(filterBy) != -1);
 }
-  
+
   constructor(private _eventsService: EventsService, private _afs: AngularFirestore) {
   }
 
@@ -71,9 +72,37 @@ export class EventListComponent implements OnInit {
     },
       error => this.errorMessage = <any>error);
   }
-  attendEvent(event: IEvent){
+  attendEvent(name: string, event: IEvent){
     var user = firebase.auth().currentUser;
     this._afs.collection(`users/${user.uid}/events`).add(event);
+
+    let index = this.attendedEvents.indexOf(name);
+    if (index == -1) {
+      this.attendedEvents.push(name);
+    }
+    else if (this.attendedEvents.length === 0) {
+      this.filteredEvents = this.events;
+    }
+    else {
+      this.filteredEvents = [];
+      this.events.forEach(event => {
+        if (this.attendedEvents.includes(event.name)) {
+          this.filteredEvents.push(event)
+        }
+      });
+    }
+
+    console.log(this.attendedEvents);
+    // console.log($event.target);
+  }
+
+  removeAttend(name: string){
+    let index = this.attendedEvents.indexOf(name)
+      if (index == 0) {
+        this.attendedEvents.pop();
+        return name;
+        console.log(name);
+      }
   }
 }
 

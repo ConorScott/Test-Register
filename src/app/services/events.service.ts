@@ -43,6 +43,11 @@ export class EventsService {
      this.eventsCollection.add(event);
    }
 
+   deleteEvent(id:string): void {
+    this.eventsCollection.doc(id).delete()
+    .catch(error => {console.log("deleteEvent error: "+error); })
+    .then(() => console.log('deleteEvent: name - '+id));
+  }
 }
 
 

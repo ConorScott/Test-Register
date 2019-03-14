@@ -1,0 +1,23 @@
+<!--Main content feed-->
+<div class='card'>
+  <div class='card-body'>
+  <div *ngIf='events && events.length'>
+  <mat-card class="event-card" *ngFor='let event of filteredEvents'>
+  <mat-card-header>
+  <div mat-card-avatar class="event-header-image"></div>
+  <mat-card-title><strong>{{event.name}}</strong></mat-card-title>
+  <mat-card-subtitle><strong>Venue:</strong>{{event.venue}} - <strong>Time:</strong>{{event.time}} - <strong>Date:</strong>{{event.date}} - <strong>Genre:</strong>{{event.genre}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+  <p>
+  {{event.description}}
+  </p>
+  </mat-card-content>
+  <mat-card-actions>
+  <button mat-button style="color:#ff0000" (click)="deleteEvent(event.eventId)">DELETE FROM FEED</button>
+  </mat-card-actions>
+  </mat-card>
+  </div>
+  </div>
+  <hr>

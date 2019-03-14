@@ -33,6 +33,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './services/user.service';
 import { VenueProfileComponent } from './venue-profile/venue-profile.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { DeleteEventComponent } from './delete-event/delete-event.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full', canActivate: [AuthGuard]},
@@ -58,7 +59,8 @@ const routes: Routes = [
     EventListComponent,
     UserProfileComponent,
     VenueProfileComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    DeleteEventComponent
   ],
   imports: [
     BrowserModule,

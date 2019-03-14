@@ -30,6 +30,11 @@
                 <input type="checkbox" name="other" [(ngModel)]="otherCheckbox" data-md-icheck (change)="doFilter('Other')">
             </li>
         </ul>
+        <h3>Attending Events:</h3>
+        <mat-card *ngFor="let event of attendedEvents">
+            <h5>{{event}}</h5>
+            <button mat-stroked-button color="warn" (click)="removeAttend()">Remove</button>
+        </mat-card>
     </mat-drawer>
     <h1 style="font-size:5.5vw;">Featured Events</h1>
 <button color="black" mat-raised-button (click)="drawer.toggle()">Filter</button>
@@ -51,7 +56,7 @@
 </p>
 </mat-card-content>
 <mat-card-actions>
-<button mat-button style="color: #90ee90" (click)='attendEvent(event)'>ATTEND</button>
+<button mat-button style="color: #90ee90" (click)='attendEvent(event.name)'>ATTEND</button>
 <button mat-button style="color:#ff0000">IGNORE</button>
 </mat-card-actions>
 </mat-card>
