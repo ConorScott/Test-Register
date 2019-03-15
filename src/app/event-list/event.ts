@@ -6,4 +6,6 @@ export interface IEvent{
     time: string;
     genre: string;
     description: string;
+    image: string;
+
 }

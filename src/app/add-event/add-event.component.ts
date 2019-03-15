@@ -25,6 +25,7 @@ export class AddEventComponent implements OnInit {
   eventTime: string;
   eventGenre: string;
   eventDescription: string;
+  image: string;
 
   constructor(private _eventService: EventsService, private router: Router) { 
    
@@ -41,7 +42,8 @@ export class AddEventComponent implements OnInit {
       venue:this.eventVenue,
       time:this.eventTime,
       genre:this.eventGenre,
-      description:this.eventDescription
+      description:this.eventDescription,
+      image:this.image
     };
     this._eventService.addEvent(event);
 

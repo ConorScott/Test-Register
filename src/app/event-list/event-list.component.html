@@ -44,21 +44,23 @@
 <div class='card-body'>
 <div *ngIf='events && events.length'>
 <mat-card class="event-card" *ngFor='let event of filteredEvents'>
-<mat-card-header>
+<mat-card-header *ngIf="!event.hideMe">
 <div mat-card-avatar class="event-header-image"></div>
 <mat-card-title><strong>{{event.name}}</strong></mat-card-title>
 <mat-card-subtitle><strong>Venue:</strong>{{event.venue}} - <strong>Time:</strong>{{event.time}} - <strong>Date:</strong>{{event.date}} - <strong>Genre:</strong>{{event.genre}}</mat-card-subtitle>
 </mat-card-header>
-<img mat-card-image src="https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg" alt="Photo of a Shiba Inu">
+<img *ngIf="!event.hideMe" mat-card-image src="{{event.image}}" alt="Photo of a Shiba Inu">
 <mat-card-content>
 <p>
 {{event.description}}
 </p>
 </mat-card-content>
-<mat-card-actions>
+<mat-card-actions *ngIf="!event.hideMe">
 <button mat-button style="color: #90ee90" (click)='attendEvent(event.name)'>ATTEND</button>
 <button mat-button style="color:#ff0000">IGNORE</button>
+<button (click)="mapDisplay(event); event.show = !event.show" mat-button style="color: #0b6f8d">LOCATION</button>
 </mat-card-actions>
+<iframe *ngIf="event.show" [src]='sanitizer.bypassSecurityTrustResourceUrl(dangerousUrl)' height="400px" width="500px"></iframe>
 </mat-card>
 </div>
 </div>
