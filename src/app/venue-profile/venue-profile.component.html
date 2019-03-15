@@ -1,25 +1,30 @@
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.email}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.name}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.description}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.venueType}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.building}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.street}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.city}}</mat-list-item>
-<mat-divider></mat-divider>
-<mat-divider></mat-divider>
-  <mat-list-item>{{user.hours}}</mat-list-item>
-<mat-divider></mat-divider>
+<title>Sligo Sounds - Venue Profile</title>
+<div class="content">
+    <mat-card class="form">
+  <mat-card class="left">
+    <h2 style="font-size:4.5vw;">Venue Info</h2>
+        <mat-card-content id="profile-img"><img src="/src/app/images/no-photo.png"></mat-card-content>
 
+  <mat-list-item style="font-size:1.5vw;">Email: {{user.email}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Name: {{user.name}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Description: {{user.description}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Venue Type: {{user.venueType}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Building No: {{user.building}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Street: {{user.street}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Town: {{user.city}}</mat-list-item>
+
+  <mat-list-item style="font-size:1.5vw;">Hours: {{user.hours}}</mat-list-item>
+  </mat-card>
+  <mat-card class="right">
+      <h1 style="font-size:3.5vw;">Upcoming Events</h1>
+      <mat-card></mat-card>
+  </mat-card>
+  </mat-card>
+  </div>
+  
