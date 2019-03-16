@@ -41,9 +41,9 @@
 
 <!--Main content feed-->
 <div class='card'>
-<div class='card-body'>
+<div class='card-body' *ngFor='let event of filteredEvents'>
 <div *ngIf='events && events.length'>
-<mat-card class="event-card" *ngFor='let event of filteredEvents'>
+<mat-card class="event-card" *ngIf="!event.hideMe">
 <mat-card-header *ngIf="!event.hideMe">
 <div mat-card-avatar class="event-header-image"></div>
 <mat-card-title><strong>{{event.name}}</strong></mat-card-title>
@@ -51,13 +51,13 @@
 </mat-card-header>
 <img *ngIf="!event.hideMe" mat-card-image src="{{event.image}}" alt="Photo of a Shiba Inu">
 <mat-card-content>
-<p>
+<p *ngIf="!event.hideMe">
 {{event.description}}
 </p>
 </mat-card-content>
 <mat-card-actions *ngIf="!event.hideMe">
 <button mat-button style="color: #90ee90" (click)='attendEvent(event.name)'>ATTEND</button>
-<button mat-button style="color:#ff0000">IGNORE</button>
+<button (click)="event.hideMe = !event.hideMe" mat-button style="color:#ff0000">IGNORE</button>
 <button (click)="mapDisplay(event); event.show = !event.show" mat-button style="color: #0b6f8d">LOCATION</button>
 </mat-card-actions>
 <iframe *ngIf="event.show" [src]='sanitizer.bypassSecurityTrustResourceUrl(dangerousUrl)' height="400px" width="500px"></iframe>

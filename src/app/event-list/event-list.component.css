@@ -43,3 +43,7 @@
   label, h3{
       color: white;
   }
+
+  .hidden{
+    display: none;
+}
