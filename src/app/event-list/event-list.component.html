@@ -31,10 +31,10 @@
             </li>
         </ul>
         <h3>Attending Events:</h3>
-        <mat-card *ngFor="let event of attendedEvents">
+        <!-- <mat-card *ngFor="let event of attendedEvents">
             <h5>{{event}}</h5>
-            <button mat-stroked-button color="warn" (click)="removeAttend(event)">Remove</button>
-        </mat-card>
+            <button mat-stroked-button color="warn" *ngIf="!event.hideMe" (click)="removeAttend(event)">Remove</button>
+        </mat-card> -->
     </mat-drawer>
     <h1 style="font-size:5.5vw;">Featured Events</h1>
 <button color="black" mat-raised-button (click)="drawer.toggle()">Filter</button>

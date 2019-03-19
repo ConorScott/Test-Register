@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { EventsService } from '../services/events.service';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -14,10 +15,11 @@ import { subscribeOn } from 'rxjs/operators';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-
   users: AngularFireList<any[]>;
   user: User;
-  constructor(private af: AngularFireDatabase, private afs : AngularFirestore, private auth: AuthService) { }
+  attendedEvents: string[] = [];
+
+  constructor(private af: AngularFireDatabase, private afs : AngularFirestore, private auth: AuthService, private _eventsService: EventsService) { }
 
   ngOnInit() {
     let sub = this.auth.currentUser().subscribe(user => {
@@ -25,8 +27,7 @@ export class UserProfileComponent implements OnInit {
       sub.unsubscribe();
     })
     this.users = this.af.list('/users');
-    
-    
+    this.attendedEvents = this._eventsService.attendedEvents
   }
 
 
