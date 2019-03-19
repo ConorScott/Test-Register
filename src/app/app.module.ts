@@ -42,7 +42,8 @@ const routes: Routes = [
   {path: 'venueSignUp', component: VenueSignUpComponent, },
   {path: 'profile', component: UserProfileComponent, },
   {path: 'venue-profile', component: VenueProfileComponent, },
-  {path: 'add-event', component: AddEventComponent, canActivate:[AdminGuard]},
+  {path: 'add-event', component: AddEventComponent, canActivate:[AuthGuard]},
+  {path: 'delete-event', component: DeleteEventComponent, canActivate:[AuthGuard]},
   {path: 'home', component: EventListComponent, canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'login', canActivate: [AuthGuard]},
 

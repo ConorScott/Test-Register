@@ -33,7 +33,7 @@
         <h3>Attending Events:</h3>
         <mat-card *ngFor="let event of attendedEvents">
             <h5>{{event}}</h5>
-            <button mat-stroked-button color="warn" (click)="removeAttend()">Remove</button>
+            <button mat-stroked-button color="warn" (click)="removeAttend(event)">Remove</button>
         </mat-card>
     </mat-drawer>
     <h1 style="font-size:5.5vw;">Featured Events</h1>
@@ -49,14 +49,14 @@
 <mat-card-title><strong>{{event.name}}</strong></mat-card-title>
 <mat-card-subtitle><strong>Venue:</strong>{{event.venue}} - <strong>Time:</strong>{{event.time}} - <strong>Date:</strong>{{event.date}} - <strong>Genre:</strong>{{event.genre}}</mat-card-subtitle>
 </mat-card-header>
-<img *ngIf="!event.hideMe" mat-card-image src="{{event.image}}" alt="Photo of a Shiba Inu">
+<img *ngIf="!event.hideMe" mat-card-image src="{{event.image}}" alt="event-img">
 <mat-card-content>
 <p *ngIf="!event.hideMe">
 {{event.description}}
 </p>
 </mat-card-content>
 <mat-card-actions *ngIf="!event.hideMe">
-<button mat-button style="color: #90ee90" (click)='attendEvent(event.name)'>ATTEND</button>
+<button mat-button style="color: #90ee90" (click)='attendEvent(event)'>ATTEND</button>
 <button (click)="event.hideMe = !event.hideMe" mat-button style="color:#ff0000">IGNORE</button>
 <button (click)="mapDisplay(event); event.show = !event.show" mat-button style="color: #0b6f8d">LOCATION</button>
 </mat-card-actions>

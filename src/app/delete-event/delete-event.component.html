@@ -1,6 +1,6 @@
 <!--Main content feed-->
 <div class='card'>
-  <div class='card-body'>
+  <mat-card class="background">
   <div *ngIf='events && events.length'>
   <mat-card class="event-card" *ngFor='let event of filteredEvents'>
   <mat-card-header>
@@ -8,8 +8,7 @@
   <mat-card-title><strong>{{event.name}}</strong></mat-card-title>
   <mat-card-subtitle><strong>Venue:</strong>{{event.venue}} - <strong>Time:</strong>{{event.time}} - <strong>Date:</strong>{{event.date}} - <strong>Genre:</strong>{{event.genre}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://www.grouphigh.com/wp-content/uploads/2015/06/amplify-blogger-outreach.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
+  <img *ngIf="!event.hideMe" mat-card-image src="{{event.image}}" alt="event-img">  <mat-card-content>
   <p>
   {{event.description}}
   </p>
@@ -19,5 +18,5 @@
   </mat-card-actions>
   </mat-card>
   </div>
-  </div>
+  </mat-card>
   <hr>

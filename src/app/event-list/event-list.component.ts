@@ -82,13 +82,13 @@ export class EventListComponent implements OnInit {
     },
       error => this.errorMessage = <any>error);
   }
-  attendEvent(name: string, event: IEvent){
+  attendEvent(event: IEvent){
     var user = firebase.auth().currentUser;
     this._afs.collection(`users/${user.uid}/events`).add(event);
 
-    let index = this.attendedEvents.indexOf(name);
+    let index = this.attendedEvents.indexOf(event.name);
     if (index == -1) {
-      this.attendedEvents.push(name);
+      this.attendedEvents.push(event.name);
     }
     else if (this.attendedEvents.length === 0) {
       this.filteredEvents = this.events;
@@ -106,10 +106,13 @@ export class EventListComponent implements OnInit {
     // console.log($event.target);
   }
 
-  removeAttend(name: string){
-    let index = this.attendedEvents.indexOf(name)
+  removeAttend(event: IEvent){
+    var user = firebase.auth().currentUser;
+    this._afs.collection(`users/${user.uid}/events`).add(event);
+
+    let index = this.attendedEvents.indexOf(event.name)
       if (index == 0) {
-        this.attendedEvents.pop();
+        this.attendedEvents.splice(0, 0);
         return name;
         console.log(name);
       }

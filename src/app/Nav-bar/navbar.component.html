@@ -6,7 +6,8 @@
     <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
   <h1>Sligo Sounds</h1>
     <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()"  routerLink="home">Home</button>
-    <button mat-button routerLinkActive="active" *ngIf="userLoggedIn()" routerLink="add-event">Add Event</button>
+    <button mat-button routerLinkActive="active" *ngIf="!userStatus && userLoggedIn()" routerLink="add-event">Add Event</button>
+    <button mat-button routerLinkActive="active" *ngIf="!userStatus && userLoggedIn()" routerLink="delete-event">Delete Event</button>
     <button mat-button routerLinkActive="active" *ngIf="userStatus && userLoggedIn()" routerLink="profile">Profile</button>
     <button mat-button routerLinkActive="active" *ngIf="!userStatus && userLoggedIn()" routerLink="venue-profile">Profile</button>
 
