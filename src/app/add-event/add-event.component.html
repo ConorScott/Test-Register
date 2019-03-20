@@ -18,7 +18,7 @@
             <label>Venue name</label>
             <input type="text" class="form-control" placeholder=" Enter venue name" name="eventVenue"
             [(ngModel)]='eventVenue'>
-          </div>	
+          </div>
           <div class="form-group">
 
             <label>Genre</label><br>
@@ -31,7 +31,7 @@
 
               </select>
           </div>
-          
+
           <div class="form-group">
             <label>Date</label><br>
             <input type="date" id="eventDate" name="eventDate"
@@ -51,11 +51,14 @@
              <input type="text"  class="form-control" id="description" placeholder="Enter a Description"
              name="eventDescription" [(ngModel)]='eventDescription'>
           </div>
+          <div class="form-group">
+            <label for ="image">Image</label>
+             <input type="text"  class="form-control" id="image" placeholder="Enter an Image URL"
+             name="image" [(ngModel)]='image'>
+          </div>
           <div>
-
             <button type="button" mat-raised-button color="black" (click)="addEvent()">Submit event</button>
           </div>
-          
       </div>
     </form>
   </mat-card>

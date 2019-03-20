@@ -23,7 +23,7 @@
         <h1 style="font-size:3.5vw;">Upcoming Events</h1>
         <mat-card ><mat-card *ngFor="let event of attendedEvents">
             <h5>{{event}}</h5>
-            <button mat-stroked-button color="warn" *ngIf="!event.hideMe">Remove</button>
+            <button mat-stroked-button color="warn" class="btn-remove" (click)="removeAttend(event)">Remove</button>
         </mat-card></mat-card>
       </mat-card>
       </mat-card>

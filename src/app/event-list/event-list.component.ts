@@ -83,40 +83,8 @@ export class EventListComponent implements OnInit {
       error => this.errorMessage = <any>error);
   }
   attendEvent(event: IEvent){
-    // var user = firebase.auth().currentUser;
-    // this._afs.collection(`users/${user.uid}/events`).add(event);
-
-    // let index = this.attendedEvents.indexOf(event.name);
-    // if (index == -1) {
-    //   this.attendedEvents.push(event.name);
-    // }
-    // else if (this.attendedEvents.length === 0) {
-    //   this.filteredEvents = this.events;
-    // }
-    // else {
-    //   this.filteredEvents = [];
-    //   this.events.forEach(event => {
-    //     if (this.attendedEvents.includes(event.name)) {
-    //       this.filteredEvents.push(event)
-    //     }
-    //   });
-    // }
-
-    // console.log(this.attendedEvents);
-    // console.log($event.target);
     this._eventsService.attendEvent(event);
   }
-
-  // removeAttend(event: IEvent){
-  //   var user = firebase.auth().currentUser;
-  //   this._afs.collection(`users/${user.uid}/events`).doc(event.name).delete();
-
-  //   let index = this.attendedEvents.indexOf(event.name);
-  //     if (index == 0) {
-  //       this.attendedEvents.splice(index, this.attendedEvents.length);
-  //       console.log(event.name);
-  //     }
-  // }
 
   mapDisplay(event: IEvent){
     this.dangerousUrl = `https://www.google.com/maps/embed/v1/place?q=${event.venue}&key=AIzaSyCuUORM_eTox14rFK4K5vPxU9wLhVhXPjg`;

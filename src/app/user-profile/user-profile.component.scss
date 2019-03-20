@@ -35,14 +35,14 @@ h2{
   display: block;
   background-color: rgba(0,0,0,.5);
   background-image: url(/src/app/images/bcklogo.png);
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 
-}  
+}
 .right {
-  width: 60%;  
-  float: right; 
+  width: 60%;
+  float: right;
   display: block;
   background-color: rgba(0,0,0,.5);
 
@@ -59,7 +59,7 @@ mat-form-field {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;    
+  display: inline-block;
   box-sizing: border-box;
 }
 img{

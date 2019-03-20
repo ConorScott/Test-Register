@@ -24,8 +24,7 @@ export class EventsService implements OnInit{
 
   constructor(private _http: HttpClient, private _afs: AngularFirestore, private _eventsService: EventsService) {
     //connect to database
-    this.eventsCollection =
-     _afs.collection<IEvent>("events");
+    this.eventsCollection =_afs.collection<IEvent>("events");
    }
 
 
@@ -84,6 +83,17 @@ export class EventsService implements OnInit{
     });
   }
   console.log(this.attendedEvents);
+  }
+
+    removeAttend(event: IEvent){
+    var user = firebase.auth().currentUser;
+    this._afs.collection(`users/${user.uid}/events`).doc(event.name).delete();
+
+    let index = this.attendedEvents.indexOf(event.name);
+      if (index == 0) {
+        this.attendedEvents.splice(index, this.attendedEvents.length);
+        console.log(event.name);
+      }
   }
 
 }

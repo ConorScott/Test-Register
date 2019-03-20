@@ -8,6 +8,7 @@ import { Profile } from '../models/profile';
 import { AuthService } from '../services/auth.service';
 import 'rxjs/add/operator/map';
 import { subscribeOn } from 'rxjs/operators';
+import {IEvent} from '../event-list/event';
 
 @Component({
   selector: 'app-user-profile',
@@ -30,5 +31,7 @@ export class UserProfileComponent implements OnInit {
     this.attendedEvents = this._eventsService.attendedEvents
   }
 
-
+  removeAttend(event: IEvent){
+    this._eventsService.removeAttend(event);
+}
 }
